@@ -12,14 +12,9 @@
   line-height: 1.5;
   
   padding: 0 20px;
-  background-color: #fff;
+  background-image: linear-gradient(to right, #000, #404040);
   opacity: 0.8;
   height: 50px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,10 +34,10 @@
   background-image: url('../../public/images/banner.jpeg');
   background-size: contain;
   background-repeat: no-repeat;
-  position: relative;
+  /* position: relative; */
 }
 .buy_now {
-  position: absolute;
+  /* position: absolute; */
   bottom: 10%;
   width: 150px;
   background-color: #565cb8;
@@ -54,12 +49,13 @@
   text-align: center;
   border-radius: 25px;
   animation: bigger 2s infinite ease-in-out;
+  margin-top: 20px;
 }
 .slogan {
   display: flex;
-  position: absolute;
-  top: 70px;
-  left: 4%;
+  /* position: absolute; */
+  margin-left: 20px;
+  padding-top: 20px;
   font-size: 28px;
   color: #333;
   font-weight: 700;
@@ -76,12 +72,10 @@
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
-  z-index: 2;
   font-family: var(--font-mono);
   align-items: first baseline;
-  position: absolute;
-  padding: 0 20px;
-  bottom: 25%;
+  padding: 0 12px;
+  margin-top: 120px;
 }
 
 .flash_sale {
