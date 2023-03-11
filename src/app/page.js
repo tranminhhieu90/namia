@@ -1,91 +1,214 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+"use client";
+import Slider from "react-slick";
+import styles from "./page.module.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { Mali } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const schema = yup
+  .object({
+    name: yup.string(),
+    phone: yup.string().required(),
+    address: yup.string(),
+  })
+  .required();
 
 export default function Home() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data) => console.log(data);
+  const settings = {
+    customPaging: function (i) {
+      return (
+        <div className={styles.slide_paging}>
+          <img src={`images/slide-${i + 1}.jpeg`} />
+        </div>
+      );
+    },
+    dots: true,
+    infinite: true,
+    dotsClass: "slick-dots-custom slick-thumb",
+    autoplay: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <div className={styles.main}>
+      <div className={styles.header}>
+        <div className={styles.logo}>
+          <img src="https://slimweb.vn/site/xedienvinfast/images/user/887/logovinfast.png" />
+        </div>
+      </div>
+      <div className={styles.banner}>
+        <div className={styles.slogan}>
+          <p>Apple Watch</p>
+          <span> ABC 4</span>
+        </div>
+        <div className={styles.promotion}>
+          <div className={styles.flash_sale}>
+            <div className={styles.flash_sale_title}>FLASH SALE</div>
+            <div className={styles.flash_sale_discount}>GIẢM 30%</div>
+            <div className={styles.flash_sale_price}>3.450.000đ</div>
+          </div>
+          <div className={styles.count_down}>
+            <div>KẾT THÚC SAU</div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.content_box}>
+        <h3>Mẫu xe máy điện thông minh đầu tiên</h3>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
+          Đây là dòng xe được tích hợp nhiều công nghệ hiện đại bên trong thiết
+          kế
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+        <p>điệu đà nhưng giá bán lại phù hợp với đại đa số người Việt</p>
+      </div>
+      <div className={styles.slide}>
+        <Slider {...settings}>
+          <div className={styles.home_slide_item}>
+            <img alt="" src="images/slide-1.jpeg" />
+          </div>
+          <div className={styles.home_slide_item}>
+            <img alt="" src="images/slide-2.jpeg" />
+          </div>
+          <div className={styles.home_slide_item}>
+            <img alt="" src="images/slide-3.jpeg" />
+          </div>
+          <div className={styles.home_slide_item}>
+            <img alt="" src="images/slide-4.jpeg" />
+          </div>
+        </Slider>
+      </div>
+      <div className={styles.product_detail}>
+        <div className={styles.product_block}>
+          <div className={styles.product_detail_title}>CHI TIẾT SẢN PHẨM</div>
+          <div className={styles.product_detail_item}>
+            <p>Danh mục</p> <p>Phụ kiện điện tử</p>
+          </div>
+          <div className={styles.product_detail_item}>
+            <p>Chất liệu</p> <p>Hợp kim nhôm</p>
+          </div>
+          <div className={styles.product_detail_item}>
+            <p>Xuất xứ</p> <p>Việt Nam</p>
+          </div>
+        </div>
+        <div className={styles.product_block}>
+          <div className={styles.product_detail_title}>MÔ TẢ SẢN PHẨM</div>
+          <div className={styles.product_detail_item}>
+            <b>Dung lượng</b>: 230 mAh
+          </div>
+          <div className={styles.product_detail_item}>
+            <b>Bộ nhớ</b>: 64M+128M
+          </div>
+          <div className={styles.product_detail_item}>
+            <b>Kích thước màn hình</b>: 1.54 inch
+          </div>
+          <div className={styles.product_detail_item}>
+            <b>Màu sắc</b>: Đen, Trắng Bạc, Xám Đen, Hồng
+          </div>
+        </div>
+      </div>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.login_form}>
+          <div className={styles.form_item}>
+            <input
+              className={styles.input_form}
+              {...register("name")}
+              placeholder="name"
+              autoComplete="do-not-autofill"
             />
-          </a>
+            <p>{errors.name?.message}</p>
+          </div>
+          <div className={styles.form_item}>
+            <input
+              className={styles.input_form}
+              {...register("phone")}
+              placeholder="Số điện thoại"
+              autoComplete="do-not-autofill"
+            />
+            <p>{errors.phone?.message}</p>
+          </div>
+          <div className={styles.form_item}>
+            <textarea
+              className={styles.textarea_form}
+              rows={5}
+              {...register("address")}
+              placeholder="Địa chỉ"
+            />
+            <p>{errors.address?.message}</p>
+          </div>
+          <div className={styles.form_submit}>
+            <button type="submit">Đặt Hàng Ngay</button>
+          </div>
+        </form>
+      </div>
+      <div className={styles.post}>
+        <div className={styles.post_content}>
+          <p>Công nghệ hút ẩm</p>
+          <h6>
+            Tự động phát hiện độ ẩm của phòng theo thời gian thực, máy sẽ ngừng
+            hút ẩm khi đạt đến độ ẩm đã cài đặt. Nếu độ ẩm tăng lên cao hơn mức
+            đó, máy sẽ tự động khởi động quá trình hút ẩm, giúp hạn chế nấm mốc,
+            bảo vệ sức khỏe các thành viên trong gia đình bạn.
+          </h6>
+        </div>
+        <div className={styles.post_img}>
+          <img src="images/hut-am.jpeg" />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+      <div className={styles.post}>
+        <div className={styles.post_content}>
+          <p>Tạo ion âm, ngăn ngừa virus nấm và vi khuẩn có hại</p>
+          <h6>
+            Có thể chúng ta chưa biết, độ ẩm cao ảnh hưởng đến sức khỏe con
+            người rất nhiều. Nếu như, độ ẩm cao trên 70% sẽ là môi trường lý
+            tưởng để các loại nấm mốc, vi khuẩn, vi rút sinh sôi, nảy nở, thậm
+            chí là các loại loại bọ bụi nhà. Từ đó con người sẽ bị các bệnh như
+            như dị ứng da, viêm mũi, hen suyễn, đau mắt, viêm đường hô hấp...
+          </h6>
+        </div>
+        <div className={styles.post_img}>
+          <img src="images/ion.jpeg" />
         </div>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className={styles.post}>
+        <div className={styles.post_img}>
+          <img src="images/dry.jpeg" />
+        </div>
+        <div className={styles.post_content}>
+          <p>Làm mát nhanh chóng, hoạt đông êm ái</p>
+          <h6>
+            Làm mát nhanh, động cơ êm ái với độ ồn thấp , yên tĩnh đảm bảo giấc
+            ngủ của bạn
+          </h6>
+        </div>
       </div>
-    </main>
-  )
+      <div className={styles.footer}>
+        <div className={styles.footer_bg}></div>
+        <div className={styles.footer_box}>
+          <div className={styles.footer_logo}>
+            <img src="https://slimweb.vn/site/xedienvinfast/images/user/887/logovinfast.png" />
+          </div>
+          <div className={styles.footer_title}>
+            VINFAST Klara – Đại lý uỷ quyền cấp 1
+          </div>
+          <div className={styles.footer_address}>
+            Số 39A Nguyễn Trãi, Thượng Đình, Thanh Xuân, TP Hà Nội
+          </div>
+        </div>
+        <div className={styles.footer_contact}>Tel: 0123 456 789</div>
+        <div className={styles.footer_contact}>Email: example@gmail.com</div>
+        <div className={styles.footer_contact}>Facebook: hieudz.fb.com</div>
+      </div>
+    </div>
+  );
 }
