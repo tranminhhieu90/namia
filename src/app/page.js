@@ -8,39 +8,49 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Countdown from "react-countdown";
 import { useRef } from "react";
-
+import Modal from "react-modal";
+import React from "react";
 const schema = yup
   .object({
     name: yup.string(),
-    phone: yup.string().required().matches(
-      /^(84|0[3|5|7|8|9])+([0-9]{8})\b$/,
-      "Số điện thoại không đúng định dạng"
-    ),
+    phone: yup
+      .string()
+      .required()
+      .matches(
+        /^(84|0[3|5|7|8|9])+([0-9]{8})\b$/,
+        "Số điện thoại không đúng định dạng"
+      ),
     address: yup.string(),
   })
   .required();
-const renderer_count_down = ({days, hours, minutes, seconds, completed }) => {
-      return <div className={styles.count_down_block}>
-        <div className={styles.count_down_item}>
-          <p>0{days}</p>
-          <h6>Days</h6>
-        </div>
-        <div className={styles.count_down_item}>
-          <p>{hours}</p>
-          <h6>Hours</h6>
-        </div>
-        <div className={styles.count_down_item}>
-          <p>{minutes}</p>
-          <h6>Min</h6>
-        </div>
-        <div className={styles.count_down_item}>
-          <p>{seconds}</p>
-          <h6>Sec</h6>
-        </div>
-      </div>;
-}
+const renderer_count_down = ({ days, hours, minutes, seconds, completed }) => {
+  return (
+    <div className={styles.count_down_block}>
+      <div className={styles.count_down_item}>
+        <p>0{days}</p>
+        <h6>Days</h6>
+      </div>
+      <div className={styles.count_down_item}>
+        <p>{hours}</p>
+        <h6>Hours</h6>
+      </div>
+      <div className={styles.count_down_item}>
+        <p>{minutes}</p>
+        <h6>Min</h6>
+      </div>
+      <div className={styles.count_down_item}>
+        <p>{seconds}</p>
+        <h6>Sec</h6>
+      </div>
+    </div>
+  );
+};
 export default function Home() {
-  const myRef = useRef(null)
+  const myRef = useRef(null);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const closeModal = () => {
+    setIsOpen(false);
+  };
   const {
     register,
     handleSubmit,
@@ -49,7 +59,8 @@ export default function Home() {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    console.log('data', data)
+    console.log("data", data);
+    setIsOpen(true);
   };
   const settings = {
     customPaging: function (i) {
@@ -67,7 +78,7 @@ export default function Home() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
- 
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -91,12 +102,20 @@ export default function Home() {
           </div>
           <div className={styles.count_down}>
             <div>Ưu đãi kết thúc sau:</div>
-            <Countdown date={Date.now() + 1000 * 60 *60 * 24 * 7} renderer={renderer_count_down} />
+            <Countdown
+              date={Date.now() + 1000 * 60 * 60 * 24 * 7}
+              renderer={renderer_count_down}
+            />
           </div>
         </div>
-        <div className={styles.buy_now} onClick={() => {
-          myRef.current.scrollIntoView({ behavior: "smooth"})   
-        }}>Buy Now</div>
+        <div
+          className={styles.buy_now}
+          onClick={() => {
+            myRef.current.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Buy Now
+        </div>
       </div>
       <div className={styles.content_box}>
         <h3>Mẫu xe máy điện thông minh đầu tiên</h3>
@@ -243,6 +262,26 @@ export default function Home() {
         <div className={styles.footer_contact}>Email: example@gmail.com</div>
         <div className={styles.footer_contact}>Facebook: hieudz.fb.com</div>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className={styles.modal}
+      >
+        <div className={styles.modal_content}>
+          <img src='images/success-icon.png'/>
+          <h6>ĐẶT HÀNG THÀNH CÔNG</h6>
+          <p>Cám ơn quý khách đã mua hàng tại <span>namia.com.vn</span></p>
+          <p>
+            Nhân viên chúng tôi sẽ sớm liên hệ với Quý khách trong thời gian sớm
+            nhất.
+          </p>
+          <p>
+            Nếu Quý Khách có thắc mắc, xin vui lòng liên hệ số hotline
+            <span>19006969</span>.
+          </p>
+          <button onClick={closeModal}>Close</button>
+        </div>
+      </Modal>
     </div>
   );
 }

@@ -351,6 +351,53 @@
 .slide {
   padding: 5px 10px;
 }
+.modal {
+  position: absolute;
+  inset: 40px;
+  background: rgb(255, 255, 255);
+  box-shadow: 1px 1px 10px 2px #adaaaa;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 10px;
+  height: fit-content;
+}
+.modal_content {
+text-align: center;
+padding: 20px 10px;
+}
+
+.modal_content img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.modal_content h6 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.modal_content p {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.modal_content span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ee4d2d;
+  margin: 0px 2px;
+}
+.modal_content button {
+  border: unset;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background-color: #ee4d2d;
+  color: #fff;
+  width: 100px;
+}
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
