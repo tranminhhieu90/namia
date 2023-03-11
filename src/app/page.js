@@ -22,7 +22,7 @@ const schema = yup
 const renderer_count_down = ({days, hours, minutes, seconds, completed }) => {
       return <div className={styles.count_down_block}>
         <div className={styles.count_down_item}>
-          <p>{days}</p>
+          <p>0{days}</p>
           <h6>Days</h6>
         </div>
         <div className={styles.count_down_item}>
@@ -84,10 +84,13 @@ export default function Home() {
           <div className={styles.flash_sale}>
             <div className={styles.flash_sale_title}>FLASH SALE</div>
             <div className={styles.flash_sale_discount}>GIẢM 30%</div>
-            <div className={styles.flash_sale_price}>3.450.000đ</div>
+            <div className={styles.flash_sale_price}>
+              <div className={styles.flash_sale_original_price}>5.450.000đ</div>
+              <div className={styles.flash_sale_new_price}>3.450.000đ</div>
+            </div>
           </div>
           <div className={styles.count_down}>
-            <div>KẾT THÚC SAU</div>
+            <div>Ưu đãi kết thúc sau:</div>
             <Countdown date={Date.now() + 1000 * 60 *60 * 24 * 7} renderer={renderer_count_down} />
           </div>
         </div>
