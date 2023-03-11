@@ -69,18 +69,16 @@
 .promotion {
   display: flex;
   justify-content: space-between;
-  font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
-  font-family: var(--font-mono);
-  align-items: first baseline;
+  align-items:  baseline;
   padding: 0 12px;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .flash_sale {
   color: #ee4d2d;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -94,8 +92,7 @@
   font-weight: 400;
 }
 .flash_sale_price {
-  font-size: 28px;
-  letter-spacing: -2px;
+  font-size: 26px;
 }
 .count_down {
   color: #333;
@@ -106,7 +103,7 @@
 .count_down_block {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .count_down_item {
   display: flex;
@@ -114,7 +111,7 @@
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
-  font-size: 25px;
+  font-size: 22px;
 }
 .content_box {
   background-color: #fff;
