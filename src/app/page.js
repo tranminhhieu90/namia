@@ -6,17 +6,41 @@ import "slick-carousel/slick/slick-theme.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Mali } from "next/font/google";
+import Countdown from "react-countdown";
+import { useRef } from "react";
 
 const schema = yup
   .object({
     name: yup.string(),
-    phone: yup.string().required(),
+    phone: yup.string().required().matches(
+      /^(84|0[3|5|7|8|9])+([0-9]{8})\b$/,
+      "Số điện thoại không đúng định dạng"
+    ),
     address: yup.string(),
   })
   .required();
-
+const renderer_count_down = ({days, hours, minutes, seconds, completed }) => {
+      return <div className={styles.count_down_block}>
+        <div className={styles.count_down_item}>
+          <p>{days}</p>
+          <h6>Days</h6>
+        </div>
+        <div className={styles.count_down_item}>
+          <p>{hours}</p>
+          <h6>Hours</h6>
+        </div>
+        <div className={styles.count_down_item}>
+          <p>{minutes}</p>
+          <h6>Min</h6>
+        </div>
+        <div className={styles.count_down_item}>
+          <p>{seconds}</p>
+          <h6>Sec</h6>
+        </div>
+      </div>;
+}
 export default function Home() {
+  const myRef = useRef(null)
   const {
     register,
     handleSubmit,
@@ -24,7 +48,9 @@ export default function Home() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log('data', data)
+  };
   const settings = {
     customPaging: function (i) {
       return (
@@ -41,6 +67,7 @@ export default function Home() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+ 
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -61,8 +88,12 @@ export default function Home() {
           </div>
           <div className={styles.count_down}>
             <div>KẾT THÚC SAU</div>
+            <Countdown date={Date.now() + 1000 * 60 *60 * 24 * 7} renderer={renderer_count_down} />
           </div>
         </div>
+        <div className={styles.buy_now} onClick={() => {
+          myRef.current.scrollIntoView({ behavior: "smooth"})   
+        }}>Buy Now</div>
       </div>
       <div className={styles.content_box}>
         <h3>Mẫu xe máy điện thông minh đầu tiên</h3>
@@ -117,7 +148,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
+      <div ref={myRef}>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.login_form}>
           <div className={styles.form_item}>
             <input
