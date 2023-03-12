@@ -13,6 +13,7 @@ import Modal from "react-modal";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { fakeNew } from "@/uititiles/fakeNews";
+import emailjs from "@emailjs/browser";
 
 const schema = yup
   .object({
@@ -86,7 +87,20 @@ export default function Home() {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    console.log("data", data);
+    emailjs
+      .send("service_vxh6gbr", "template_vlkptwn", {
+        name: data.name,
+        phone: data.phone,
+        address: data.address,
+      }, 'GAKnrx8iiEtv58CiL')
+      .then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function (error) {
+          console.log("FAILED...", error);
+        }
+      );
     setIsOpen(true);
   };
   const settings = {
