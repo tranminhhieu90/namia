@@ -1,4 +1,5 @@
 "use client";
+import "react-toastify/dist/ReactToastify.css";
 import Slider from "react-slick";
 import styles from "./page.module.css";
 import "slick-carousel/slick/slick.css";
@@ -7,9 +8,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Countdown from "react-countdown";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Modal from "react-modal";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { fakeNew } from "@/uititiles/fakeNews";
+
 const schema = yup
   .object({
     name: yup.string(),
@@ -48,6 +52,29 @@ const renderer_count_down = ({ days, hours, minutes, seconds, completed }) => {
 export default function Home() {
   const myRef = useRef(null);
   const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  const createNotification = () => {
+    const index = Math.floor(Math.random() * fakeNew.length);
+    toast(
+      <div className={styles.toasty}>
+        <div className={styles.toasty_icon}>
+          <div className={styles.toasty_circle}></div>
+        </div>
+        <div className={styles.toasty_content}>
+          <p className={styles.toasty_title}>{fakeNew[index].phone}</p>
+          <p className={styles.toasty_item}>{fakeNew[index].content}</p>
+          <p className={styles.toasty_item}>{fakeNew[index].time}</p>
+        </div>
+      </div>
+    );
+  };
+  useEffect(() => {
+    const timer = setInterval(() => createNotification(), 15000);
+    return () => {
+      clearInterval(timer);
+    };
+  });
+
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -268,9 +295,11 @@ export default function Home() {
         className={styles.modal}
       >
         <div className={styles.modal_content}>
-          <img src='images/success-icon.png'/>
+          <img src="images/success-icon.png" />
           <h6>ĐẶT HÀNG THÀNH CÔNG</h6>
-          <p>Cám ơn quý khách đã mua hàng tại <span>namia.com.vn</span></p>
+          <p>
+            Cám ơn quý khách đã mua hàng tại <span>namia.com.vn</span>
+          </p>
           <p>
             Nhân viên chúng tôi sẽ sớm liên hệ với Quý khách trong thời gian sớm
             nhất.
@@ -282,6 +311,15 @@ export default function Home() {
           <button onClick={closeModal}>Close</button>
         </div>
       </Modal>
+      <ToastContainer
+        className={styles.toast_container}
+        bodyClassName={styles.toasty_body}
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        closeButton={false}
+        limit={1}
+      />
     </div>
   );
 }

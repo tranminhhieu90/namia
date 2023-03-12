@@ -1,11 +1,13 @@
 @keyframes bigger {
-  from { transform: scale(1);}
   to { transform: scale(1.2);}
 }
 .main {
   min-height: 100vh;
 }
 
+@keyframes beat{
+	to { transform: scale(1.4); }
+}
 .header {
   width: 100%;
   font-size: 15px;
@@ -48,7 +50,7 @@
   padding: 10px 20px;
   text-align: center;
   border-radius: 25px;
-  animation: bigger 2s infinite ease-in-out;
+  animation: bigger .25s infinite alternate;
   margin-top: 20px;
 }
 .slogan {
@@ -397,6 +399,50 @@ padding: 20px 10px;
   background-color: #ee4d2d;
   color: #fff;
   width: 100px;
+}
+
+.toast_container {
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+.toasty {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+ align-items: center;
+}
+.toasty_body {
+  padding: 0
+}
+.toasty_title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.toasty_icon {
+  /* background: cornflowerblue; */
+  border: 1px solid cornflowerblue;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  animation: beat .25s infinite alternate;
+	transform-origin: center;
+  margin-right: 25px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toasty_circle {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: cornflowerblue;
 }
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
