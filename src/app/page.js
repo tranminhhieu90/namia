@@ -74,7 +74,7 @@ export default function Home() {
     return () => {
       clearInterval(timer);
     };
-  });
+  }, []);
 
   const closeModal = () => {
     setIsOpen(false);
