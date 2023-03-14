@@ -15,6 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { fakeNew } from "@/uititiles/fakeNews";
 import emailjs from "@emailjs/browser";
 import { FaPhoneAlt } from "react-icons/fa";
+import Comments from "@/components/comments";
 const schema = yup
   .object({
     name: yup.string(),
@@ -25,7 +26,7 @@ const schema = yup
         /^(84|0[3|5|7|8|9])+([0-9]{8})\b$/,
         "Số điện thoại không đúng định dạng"
       ),
-    address: yup.string(),
+    comment: yup.string(),
   })
   .required();
 const renderer_count_down = ({ days, hours, minutes, seconds, completed }) => {
@@ -88,11 +89,16 @@ export default function Home() {
   });
   const onSubmit = (data) => {
     emailjs
-      .send("service_vxh6gbr", "template_vlkptwn", {
-        name: data.name,
-        phone: data.phone,
-        address: data.address,
-      }, 'GAKnrx8iiEtv58CiL')
+      .send(
+        "service_vxh6gbr",
+        "template_vlkptwn",
+        {
+          name: data.name,
+          phone: data.phone,
+          schema: data.schema,
+        },
+        "GAKnrx8iiEtv58CiL"
+      )
       .then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
@@ -124,7 +130,16 @@ export default function Home() {
     <div className={styles.main}>
       <div className={styles.header}>
         <div className={styles.logo}>
-          <img src="https://slimweb.vn/site/xedienvinfast/images/user/887/logovinfast.png" />
+          <img src="images/logo.png" />
+        </div>
+        <div
+          className={styles.buy_now}
+          style={{ margin: 0, marginRight: 20 }}
+          onClick={() => {
+            myRef.current.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Nhận Ưu Đãi
         </div>
       </div>
       <div className={styles.banner}>
@@ -144,7 +159,7 @@ export default function Home() {
           <div className={styles.count_down}>
             <div>Ưu đãi kết thúc sau:</div>
             <Countdown
-              date={Date.now() + 1000 * 60 * 60 * 24 * 7}
+              date={Date.now() + 1000 * 60 * 60 * 2 + 1000 * 60 * 26}
               renderer={renderer_count_down}
             />
           </div>
@@ -155,7 +170,7 @@ export default function Home() {
             myRef.current.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          Buy Now
+          Nhận Ưu Đãi
         </div>
       </div>
       <div className={styles.content_box}>
@@ -217,7 +232,7 @@ export default function Home() {
             <input
               className={styles.input_form}
               {...register("name")}
-              placeholder="name"
+              placeholder="Họ Tên"
               autoComplete="do-not-autofill"
             />
             <p>{errors.name?.message}</p>
@@ -235,8 +250,8 @@ export default function Home() {
             <textarea
               className={styles.textarea_form}
               rows={5}
-              {...register("address")}
-              placeholder="Địa chỉ"
+              {...register("schema")}
+              placeholder="Phản hồi tới nhà phân phối"
             />
             <p>{errors.address?.message}</p>
           </div>
@@ -286,11 +301,14 @@ export default function Home() {
           </h6>
         </div>
       </div>
+      <Comments />
       <div className={styles.footer}>
         <div className={styles.footer_bg}></div>
         <div className={styles.footer_box}>
-          <div className={styles.footer_logo}>
-            <img src="https://slimweb.vn/site/xedienvinfast/images/user/887/logovinfast.png" />
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div className={styles.footer_logo}>
+              <img src="images/logo.png" />
+            </div>
           </div>
           <div className={styles.footer_title}>
             VINFAST Klara – Đại lý uỷ quyền cấp 1
@@ -336,7 +354,7 @@ export default function Home() {
       />
       <div className={styles.fix_tel}>
         <a href={`tel:0356235391`}>
-          <FaPhoneAlt/>
+          <FaPhoneAlt />
         </a>
       </div>
     </div>
