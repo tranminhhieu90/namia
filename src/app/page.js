@@ -95,7 +95,7 @@ export default function Home() {
         {
           name: data.name,
           phone: data.phone,
-          schema: data.schema,
+          comment: data.comment,
         },
         "GAKnrx8iiEtv58CiL"
       )
@@ -250,7 +250,7 @@ export default function Home() {
             <textarea
               className={styles.textarea_form}
               rows={5}
-              {...register("schema")}
+              {...register("comment")}
               placeholder="Phản hồi tới nhà phân phối"
             />
             <p>{errors.address?.message}</p>
