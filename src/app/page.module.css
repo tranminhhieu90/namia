@@ -8,6 +8,20 @@
 @keyframes beat{
 	to { transform: scale(1.4); }
 }
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 .header {
   width: 100%;
   font-size: 15px;
@@ -32,10 +46,11 @@
 
 .banner {
   width: 100%;
-  height: 360px;
+  /* height: 360px; */
   background-image: url('../../public/images/banner.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 20px 0px;
   /* position: relative; */
 }
 .buy_now {
@@ -443,6 +458,26 @@ padding: 20px 10px;
   width: 10px;
   height: 10px;
   background: cornflowerblue;
+}
+
+.fix_tel {
+  cursor: pointer;
+  background: #0288d1;
+  text-decoration: none;
+  z-index: 9999;
+  color: #FFF !important;
+  font-weight: 500;
+  font-size: 1.3em;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 18px;
+  right: 2%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: shake infinite 2s;
 }
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {

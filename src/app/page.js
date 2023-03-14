@@ -14,7 +14,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { fakeNew } from "@/uititiles/fakeNews";
 import emailjs from "@emailjs/browser";
-
+import { FaPhoneAlt } from "react-icons/fa";
 const schema = yup
   .object({
     name: yup.string(),
@@ -334,6 +334,11 @@ export default function Home() {
         closeButton={false}
         limit={1}
       />
+      <div className={styles.fix_tel}>
+        <a href={`tel:0356235391`}>
+          <FaPhoneAlt/>
+        </a>
+      </div>
     </div>
   );
 }
