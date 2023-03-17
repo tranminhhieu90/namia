@@ -470,12 +470,12 @@ export default function Home() {
             Đại lý uỷ quyền cấp
           </div>
           <div className={styles.footer_address}>
-            Số 39A Nguyễn Trãi, Thượng Đình, Thanh Xuân, TP Hà Nội
+            Trường mầm non Thành Đông, 19 Tố Hữu, Trung Văn, Hà Nội.
           </div>
         </div>
-        <div className={styles.footer_contact}>Tel: 0123 456 789</div>
-        <div className={styles.footer_contact}>Email: example@gmail.com</div>
-        <div className={styles.footer_contact}>Facebook: hieudz.fb.com</div>
+        <div className={styles.footer_contact}>Tel: 0865856855</div>
+        <div className={styles.footer_contact}>Email: dieuhoanamia@gmail.com</div>
+        {/* <div className={styles.footer_contact}>Facebook: hieudz.fb.com</div> */}
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -494,7 +494,7 @@ export default function Home() {
           </p>
           <p>
             Nếu Quý Khách có thắc mắc, xin vui lòng liên hệ số hotline
-            <span>19006969</span>.
+            <a href={`tel:0865856855`}><span>0865856855</span>.</a>
           </p>
           <button onClick={closeModal}>Close</button>
         </div>
@@ -509,7 +509,7 @@ export default function Home() {
         limit={1}
       />
       <div className={styles.fix_tel}>
-        <a href={`tel:0356235391`}>
+        <a href={`tel:0865856855`}>
           <FaPhoneAlt />
         </a>
       </div>
