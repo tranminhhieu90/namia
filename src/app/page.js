@@ -467,7 +467,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.footer_title}>
-            VINFAST Klara – Đại lý uỷ quyền cấp 1
+            Đại lý uỷ quyền cấp
           </div>
           <div className={styles.footer_address}>
             Số 39A Nguyễn Trãi, Thượng Đình, Thanh Xuân, TP Hà Nội
@@ -499,7 +499,7 @@ export default function Home() {
           <button onClick={closeModal}>Close</button>
         </div>
       </Modal>
-      <ToastContainer
+      {/* <ToastContainer
         className={styles.toast_container}
         bodyClassName={styles.toasty_body}
         position="top-right"
@@ -507,7 +507,7 @@ export default function Home() {
         hideProgressBar={true}
         closeButton={false}
         limit={1}
-      />
+      /> */}
       <div className={styles.fix_tel}>
         <a href={`tel:0356235391`}>
           <FaPhoneAlt />

@@ -491,3 +491,89 @@ padding: 20px 10px;
   font-size: 12px;
 }
 /* Enable hover only on non-touch devices */
+@media screen and (min-width: 540px) and (max-width: 830px) {
+  .slogan {
+    font-size: 32px;
+  }
+  .flash_sale{
+    font-size: 18px;
+  }
+  .flash_sale_discount {
+    font-size: 14px;
+  }
+  .flash_sale_original_price {
+    font-size: 18px;
+  }
+  .flash_sale_new_price {
+    font-size: 30px;
+  }
+  .count_down {
+    font-size: 22px;
+  }
+  .count_down_item{
+    font-size: 26px;
+  }
+  .content_box {
+    font-size: 26px;
+  }
+  .content_box p {
+    font-size: 18px;
+  }
+  .home_slide_item {
+    height: 450px;
+  }
+  .slide_paging {
+    height: 100px;
+    width: 120px;
+  }
+  .product_detail {
+    padding: 20px 80px;
+  }
+  .product_detail_item{
+    font-size: 24px;
+  }
+  .table td {
+    padding: 8px;
+    font-size: 18px;
+  }
+  .login_form {
+    padding: 40px 100px;
+  }
+  .input_form {
+    height: 65px;
+    font-size: 22px;
+  }
+  .textarea_form{
+    font-size: 22px;
+  }
+  .form_submit button {
+    font-size: 24px;
+  }
+  .post {
+    padding: 30px 60px;
+  }
+  .post_content p {
+    font-size: 32px;
+  }
+  .post_content h6 {
+    font-size: 22px;
+  }
+  .post_img img {
+    height: 500px;
+  }
+  .footer_address{
+    font-size: 20px;
+  }
+  .footer_contact {
+    padding: 20px 0px;
+    font-size: 18px;
+  }
+  .buy_now {
+    padding: 15px 30px;
+    width: 200px;
+  }
+  .logo {
+    width: 140px;
+    height: 130px;
+  }
+}
