@@ -577,3 +577,10 @@ padding: 20px 10px;
     height: 130px;
   }
 }
+
+@media screen and (min-width: 1025px) {
+  .header, .banner, .slide , .product_detail, .login_form, .post{
+    max-width: 1024px;
+    margin: auto;
+  }
+}
