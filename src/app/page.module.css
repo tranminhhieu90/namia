@@ -491,7 +491,7 @@ padding: 20px 10px;
   font-size: 12px;
 }
 /* Enable hover only on non-touch devices */
-@media screen and (min-width: 540px) and (max-width: 830px) {
+@media screen and (min-width: 540px) {
   .slogan {
     font-size: 32px;
   }
