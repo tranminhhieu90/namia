@@ -145,8 +145,8 @@ export default function Home() {
       </div>
       <div className={styles.banner}>
         <div className={styles.slogan}>
-          <p>Apple Watch</p>
-          <span> ABC 4</span>
+          <p><p>Điều hòa mini</p></p>
+          <span> WONSHItA</span>
         </div>
         <div className={styles.promotion}>
           <div className={styles.flash_sale}>
