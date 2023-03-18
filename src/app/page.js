@@ -15,8 +15,9 @@ import { ToastContainer, toast } from "react-toastify";
 import { fakeNew } from "@/uititiles/fakeNews";
 import emailjs from "@emailjs/browser";
 import { FaPhoneAlt } from "react-icons/fa";
-import {  AiOutlineCheckCircle } from "react-icons/ai";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 import Comments from "@/components/comments";
+import { slideImages } from "@/uititiles/slideImages";
 const schema = yup
   .object({
     name: yup.string(),
@@ -114,7 +115,7 @@ export default function Home() {
     customPaging: function (i) {
       return (
         <div className={styles.slide_paging}>
-          <img src={`images/slide-${i + 1}.jpeg`} />
+          <img src={slideImages[i]} />
         </div>
       );
     },
@@ -177,24 +178,23 @@ export default function Home() {
       <div className={styles.content_box}>
         <h3>Điều hòa all-in-one đầu tiên Việt Nam</h3>
         <p>
-          Điều hòa có kích thước nhỏ gọn và linh hoạt, có thể di chuyển dễ dàng từ nơi này sang nơi khác
+          Điều hòa có kích thước nhỏ gọn và linh hoạt, có thể di chuyển dễ dàng
+          từ nơi này sang nơi khác
         </p>
-        <p>Có cùng nguyên lý hoạt động với điều hòa truyền thống, nhưng có thiết kế cục nóng và cục lạnh trong cùng một khối</p>
+        <p>
+          Có cùng nguyên lý hoạt động với điều hòa truyền thống, nhưng có thiết
+          kế cục nóng và cục lạnh trong cùng một khối
+        </p>
       </div>
       <div className={styles.slide}>
         <Slider {...settings}>
-          <div className={styles.home_slide_item}>
-            <img alt="" src="images/slide-1.jpeg" />
-          </div>
-          <div className={styles.home_slide_item}>
-            <img alt="" src="https://s3.eu-west-1.amazonaws.com/www.bristolberlin.com/media/machine/f0b36104d32cb833b094e7fc9e66a806.jpg" />
-          </div>
-          <div className={styles.home_slide_item}>
-            <img alt="" src="images/slide-3.jpeg" />
-          </div>
-          <div className={styles.home_slide_item}>
-            <img alt="" src="https://s3.eu-west-1.amazonaws.com/www.bristolberlin.com/media/machine/IMG_0239.JPG" />
-          </div>
+          {slideImages.map((item, index) => {
+            return (
+              <div key={index} className={styles.home_slide_item}>
+                <img alt="" src={item}/>
+              </div>
+            );
+          })}
         </Slider>
       </div>
       <div className={styles.product_detail}>
@@ -460,20 +460,20 @@ export default function Home() {
       <div className={styles.footer}>
         <div className={styles.footer_bg}></div>
         <div className={styles.footer_box}>
-          <div style={{display: 'flex', justifyContent: 'center'}}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div className={styles.footer_logo}>
               <img src="images/logo.png" />
             </div>
           </div>
-          <div className={styles.footer_title}>
-            Đại lý uỷ quyền cấp
-          </div>
+          <div className={styles.footer_title}>Đại lý uỷ quyền cấp</div>
           <div className={styles.footer_address}>
             Trường mầm non Thành Đông, 19 Tố Hữu, Trung Văn, Hà Nội.
           </div>
         </div>
         <div className={styles.footer_contact}>Tel: 0865856855</div>
-        <div className={styles.footer_contact}>Email: dieuhoanamia@gmail.com</div>
+        <div className={styles.footer_contact}>
+          Email: dieuhoanamia@gmail.com
+        </div>
         {/* <div className={styles.footer_contact}>Facebook: hieudz.fb.com</div> */}
       </div>
       <Modal
@@ -493,7 +493,9 @@ export default function Home() {
           </p>
           <p>
             Nếu Quý Khách có thắc mắc, xin vui lòng liên hệ số hotline
-            <a href={`tel:0865856855`}><span>0865856855</span>.</a>
+            <a href={`tel:0865856855`}>
+              <span>0865856855</span>.
+            </a>
           </p>
           <button onClick={closeModal}>Close</button>
         </div>
