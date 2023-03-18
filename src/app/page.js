@@ -135,18 +135,18 @@ export default function Home() {
         </div>
         <div
           className={styles.buy_now}
-          style={{ margin: 0, marginRight: 20 }}
+          style={{ margin: 0, marginRight: 20, width: 200 }}
           onClick={() => {
             myRef.current.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          Nhận Ưu Đãi
+          Kiến tạo cuộc sống
         </div>
       </div>
       <div className={styles.banner}>
         <div className={styles.slogan}>
-          <p><p>Điều hòa mini</p></p>
-          <span> WONSHItA</span>
+          <p>Điều hòa mini</p>
+          <span> WONSHITA</span>
         </div>
         <div className={styles.promotion}>
           <div className={styles.flash_sale}>
@@ -154,7 +154,7 @@ export default function Home() {
             <div className={styles.flash_sale_discount}>GIẢM 30%</div>
             <div className={styles.flash_sale_price}>
               <div className={styles.flash_sale_original_price}>5.450.000đ</div>
-              <div className={styles.flash_sale_new_price}>3.450.000đ</div>
+              <div className={styles.flash_sale_new_price}>3.449.000đ</div>
             </div>
           </div>
           <div className={styles.count_down}>
@@ -175,12 +175,11 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.content_box}>
-        <h3>Mẫu xe máy điện thông minh đầu tiên</h3>
+        <h3>Điều hòa all-in-one đầu tiên Việt Nam</h3>
         <p>
-          Đây là dòng xe được tích hợp nhiều công nghệ hiện đại bên trong thiết
-          kế
+          Điều hòa có kích thước nhỏ gọn và linh hoạt, có thể di chuyển dễ dàng từ nơi này sang nơi khác
         </p>
-        <p>điệu đà nhưng giá bán lại phù hợp với đại đa số người Việt</p>
+        <p>Có cùng nguyên lý hoạt động với điều hòa truyền thống, nhưng có thiết kế cục nóng và cục lạnh trong cùng một khối</p>
       </div>
       <div className={styles.slide}>
         <Slider {...settings}>
@@ -188,13 +187,13 @@ export default function Home() {
             <img alt="" src="images/slide-1.jpeg" />
           </div>
           <div className={styles.home_slide_item}>
-            <img alt="" src="images/slide-2.jpeg" />
+            <img alt="" src="https://s3.eu-west-1.amazonaws.com/www.bristolberlin.com/media/machine/f0b36104d32cb833b094e7fc9e66a806.jpg" />
           </div>
           <div className={styles.home_slide_item}>
             <img alt="" src="images/slide-3.jpeg" />
           </div>
           <div className={styles.home_slide_item}>
-            <img alt="" src="images/slide-4.jpeg" />
+            <img alt="" src="https://s3.eu-west-1.amazonaws.com/www.bristolberlin.com/media/machine/IMG_0239.JPG" />
           </div>
         </Slider>
       </div>
