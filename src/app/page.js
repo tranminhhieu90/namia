@@ -146,8 +146,7 @@ export default function Home() {
       </div>
       <div className={styles.banner}>
         <div className={styles.slogan}>
-          <p>Điều hòa mini</p>
-          <span> WONSHITA</span>
+          <p>Điều hòa thông minh NAMIA</p>
         </div>
         <div className={styles.promotion}>
           <div className={styles.flash_sale}>
@@ -178,12 +177,7 @@ export default function Home() {
       <div className={styles.content_box}>
         <h3>Điều hòa all-in-one đầu tiên Việt Nam</h3>
         <p>
-          Điều hòa có kích thước nhỏ gọn và linh hoạt, có thể di chuyển dễ dàng
-          từ nơi này sang nơi khác
-        </p>
-        <p>
-          Có cùng nguyên lý hoạt động với điều hòa truyền thống, nhưng có thiết
-          kế cục nóng và cục lạnh trong cùng một khối
+          <b>Điều hòa thông minh Namia</b> có thiết kế nhỏ gọn và linh động, nhưng tích hợp đầy đủ tính năng thông mini 3 trong 1 -  <b>Làm mát - Hút ẩm- Lọc không khí Công nghệ hút ẩm</b>
         </p>
       </div>
       <div className={styles.slide}>
@@ -419,10 +413,7 @@ export default function Home() {
         <div className={styles.post_content}>
           <p>Công nghệ hút ẩm</p>
           <h6>
-            Tự động phát hiện độ ẩm của phòng theo thời gian thực, máy sẽ ngừng
-            hút ẩm khi đạt đến độ ẩm đã cài đặt. Nếu độ ẩm tăng lên cao hơn mức
-            đó, máy sẽ tự động khởi động quá trình hút ẩm, giúp hạn chế nấm mốc,
-            bảo vệ sức khỏe các thành viên trong gia đình bạn.
+            <b>Máy điều hòa thông minh Namia</b> tích hợp công nghệ hút ẩm, <b>tự động phát hiện độ ẩm</b> phòng theo thời gian thực. Khi độ ẩm quá cao máy sẽ tự động hút ẩm và ngừng lại khi độ ẩm đã đến ngưỡng cài đặt. Công nghệ hút ẩm sẽ giúp hút sạch không khí ẩm trong phòng, nhất là những ngày mưa hay mùa nồm, mang đến cho không gian khô thoáng, thoải mái, sạch sẽ. Hạn chế nấm mốc, bảo vệ sức khỏe các thành viên trong gia đình
           </h6>
         </div>
         <div className={styles.post_img}>
@@ -433,11 +424,7 @@ export default function Home() {
         <div className={styles.post_content}>
           <p>Tạo ion âm, ngăn ngừa virus nấm và vi khuẩn có hại</p>
           <h6>
-            Có thể chúng ta chưa biết, độ ẩm cao ảnh hưởng đến sức khỏe con
-            người rất nhiều. Nếu như, độ ẩm cao trên 70% sẽ là môi trường lý
-            tưởng để các loại nấm mốc, vi khuẩn, vi rút sinh sôi, nảy nở, thậm
-            chí là các loại loại bọ bụi nhà. Từ đó con người sẽ bị các bệnh như
-            như dị ứng da, viêm mũi, hen suyễn, đau mắt, viêm đường hô hấp...
+            Điều hòa mini Namia không chỉ tạo bầu không khí mát mẻ mà tạo ion âm, đây là công nghệ đã được chứng minh có tác dụng diệt vi khuẩn, virus, nấm mốc, khử mùi, được nhiều nhà khoa học nghiên cứu ứng dụng làm sạch không khí. Với sức khỏe con người, ion âm còn có các lợi ích như tăng cường lưu thông máu, tăng cường hệ thống miễn dịch, làm giảm stress và sự lo lắng, tăng cường tập trung não bộ, cải thiện bệnh về đường hô hấp. Từ đó  ngăn ngừa kiểm soát bệnh truyền nhiễm trong không khí, bề mặt, giảm tỷ lệ mắc bệnh đường hô hấp như: Hen suyễn, viêm mũi ... Cho người sử dụng
           </h6>
         </div>
         <div className={styles.post_img}>
@@ -445,18 +432,29 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.post}>
-        <div className={styles.post_img}>
-          <img src="images/dry.jpeg" />
-        </div>
         <div className={styles.post_content}>
           <p>Làm mát nhanh chóng, hoạt đông êm ái</p>
           <h6>
-            Làm mát nhanh, động cơ êm ái với độ ồn thấp , yên tĩnh đảm bảo giấc
-            ngủ của bạn
+            Công suất làm lạnh 420W / 1,433Btu cùng tính năng máy nén piston hoạt động mạnh mẽ đạt được tần số tối đa ngay từ khi khởi động để tăng tốc thời gian làm mát phòng. Nhờ vậy, bạn không phải chờ đợi quá lâu để tận hưởng những làn gió mát lạnh giữa ngày hè nắng nóng. Khả năng làm mát nhanh chóng cùng khả năng vận hành êm ái sẽ đảm bảo mang đến giấc ngủ êm đềm
           </h6>
+        </div>
+        <div className={styles.post_img}>
+          <img src="images/dry.jpeg" />
+        </div>
+      </div>
+      <div className={styles.post}>
+        <div className={styles.post_content}>
+          <p>Điều hòa mini chất lượng cao</p>
+          <h6>
+            Sản phẩm điều hòa mini Namia được ra mắt vào năm 2020, ngay lập tức đã trở thành sản phẩm hot trên thị trường và được nhiều người lựa chọn “giải nhiệt” cho mùa hè oi bức. Đây là dòng sản phẩm điều hòa rất Smart, nhờ thiết kế thông minh 2 bộ phận cục nóng và lạnh trên cùng 1 thiết bị, nên máy điều hòa mini không cần lắp đặt như các dòng gắn tường thông thường và có thể di chuyển linh động. Dòng điều hòa có thiết kế nhỏ gọn, linh động nhưng tích hợp đầy đủ tính năng thông minh 3 trong 1 - làm mát- hút ẩm- lọc không khí
+          </h6>
+        </div>
+        <div className={styles.post_img}>
+          <img src="https://s3.eu-west-1.amazonaws.com/www.bristolberlin.com/media/functions/image%20(5).jpg" />
         </div>
       </div>
       <Comments />
+      
       <div className={styles.footer}>
         <div className={styles.footer_bg}></div>
         <div className={styles.footer_box}>
