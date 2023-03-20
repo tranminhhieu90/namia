@@ -375,6 +375,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className={styles.product_video}>
+        <video controls>
+          <source src="https://s3.eu-west-1.amazonaws.com/www.bristolberlin.com/media/functions/IMG_0315.MOV"/>
+        </video>
+      </div>
       <div ref={myRef}>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.login_form}>
           <div className={styles.form_item}>
