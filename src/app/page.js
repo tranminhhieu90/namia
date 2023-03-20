@@ -177,7 +177,7 @@ export default function Home() {
       <div className={styles.content_box}>
         <h3>Điều hòa all-in-one đầu tiên Việt Nam</h3>
         <p>
-          <b>Điều hòa thông minh Namia</b> có thiết kế nhỏ gọn và linh động, nhưng tích hợp đầy đủ tính năng thông mini 3 trong 1 -  <b>Làm mát - Hút ẩm- Lọc không khí Công nghệ hút ẩm</b>
+          <b>Điều hòa thông minh Namia</b> có thiết kế nhỏ gọn và linh động, nhưng tích hợp đầy đủ tính năng thông mini 3 trong 1 -  <b>Làm mát - Hút ẩm- Lọc không khí</b>
         </p>
       </div>
       <div className={styles.slide}>
