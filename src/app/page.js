@@ -107,6 +107,45 @@ export default function Home() {
         },
         function (error) {
           console.log("FAILED...", error);
+          emailjs
+          .send(
+            "service_p2gadnw",
+            "template_2e6m17n",
+            {
+              name: data.name,
+              phone: data.phone,
+              comment: data.comment,
+            },
+            "1YqUmC0z-ppEde3FB"
+          )
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+            },
+            function (error) {
+              console.log("FAILED...", error);
+              emailjs
+              .send(
+                "service_j61n9x3",
+                "template_44ftm9t",
+                {
+                  name: data.name,
+                  phone: data.phone,
+                  comment: data.comment,
+                },
+                "sKT2lVisEx8tOCjhW"
+              )
+              .then(
+                function (response) {
+                  console.log("SUCCESS!", response.status, response.text);
+                },
+                function (error) {
+                  console.log("FAILED...", error);
+                  
+                }
+              );
+            }
+          );
         }
       );
     setIsOpen(true);
